@@ -1,5 +1,8 @@
 package hbcu.stay.ready;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
+import hbcu.stay.ready.animals.Animal;
+import hbcu.stay.ready.animals.Mammal;
 import org.junit.Assert;
 import org.junit.Test;
 import hbcu.stay.ready.animals.Cat;
@@ -38,4 +41,95 @@ public class CatTest {
         Assert.assertEquals(givenId, retrievedId);
     }
 
+    @Test
+    public void speakTest() {
+
+        String givenName = "Zula";
+        Date givenBirthDate = new Date();
+        Integer givenId = 0;
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+        cat.speak();
+
+        String expected = "meow";
+        String actual = cat.speak();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getBirthdateTest() {
+
+        String givenName = "Zula";
+        Date givenBirthDate = new Date();
+        Integer givenId = 0;
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+        Date catBD = new Date();
+
+
+        String expectedDate = catBD.toString();
+        String actualDate = cat.getBirthDate().toString();
+        Assert.assertEquals(expectedDate, actualDate);
+    }
+
+    @Test
+    public void eatTest() {
+
+        String givenName = "Zula";
+        Date givenBirthDate = new Date();
+        Integer givenId = 0;
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+        cat.eat(new Food());
+        Integer expectedInt = 1;
+        Integer actualInt = cat.getNumberOfMealsEaten();
+        Assert.assertEquals(actualInt, expectedInt);
+    }
+
+    @Test
+    public void getID() {
+
+        String givenName = "Zula";
+        Date givenBirthDate = new Date();
+        Integer givenId = 0;
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+        cat.getId();
+
+        Integer expectedInt = 0;
+        Integer actualInt = cat.getId();
+        Assert.assertEquals(expectedInt, actualInt);
+    }
+
+    @Test
+    public  void animalTest(){
+        String givenName = "Zula";
+        Date givenBirthDate = new Date();
+        Integer givenId = 0;
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+
+        Assert.assertTrue( cat instanceof Animal);
+    }
+    @Test
+    public  void mammalTest() {
+        String givenName = "Zula";
+        Date givenBirthDate = new Date();
+        Integer givenId = 0;
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+
+        Assert.assertTrue(cat instanceof Animal);
+
+    }
 }
+
+
+
+
